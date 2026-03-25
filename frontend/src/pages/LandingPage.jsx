@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 /* ─── SVG Icons ──────────────────────────────────────────────────────────────── */
 const I = ({ d, size = 20, cls = "", fill = "none", sw = "1.8" }) => (
@@ -73,7 +74,7 @@ const VILLAGE_TYPES = [
   { emoji: "🪔", label: "Tribal Retreats",  count: "31 stays",  color: "bg-[#fdf0e2]" },
 ];
 
-const STAYS = [
+export const STAYS = [
   {
     name: "The Laterite Heritage Home",
     village: "Sindhudurg, Maharashtra",
@@ -306,6 +307,7 @@ const VillageTypes = () => (
 /* ─── Featured Stays ──────────────────────────────────────────────────────────── */
 const FeaturedStays = () => {
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate();
   return (
     <section id="stays" className="py-20 px-6 md:px-10 bg-[#f9f1e7]">
       <div className="max-w-7xl mx-auto">
@@ -323,7 +325,8 @@ const FeaturedStays = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {STAYS.map((s, i) => (
-            <div key={i} className="leaf-card overflow-hidden cursor-pointer"
+            <div key={i} className="leaf-card overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300"
+              onClick={() => navigate(`/property/${i}`)}
               onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
