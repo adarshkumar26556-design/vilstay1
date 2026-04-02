@@ -352,72 +352,68 @@ const BookingModal = ({ stay, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-bark/70 backdrop-blur-sm" onClick={onClose} />
 
-      {/* Modal card — bottom sheet on mobile, centred card on sm+ */}
-      <div className="relative bg-cream w-full sm:max-w-md sm:mx-4 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] animate-fade-up">
-        {/* Drag handle visible only on mobile */}
-        <div className="flex justify-center pt-3 pb-1 sm:hidden">
-          <div className="w-10 h-1 rounded-full bg-straw" />
-        </div>
+      {/* Modal card */}
+      <div className="relative bg-cream rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-fade-up">
         {/* Header */}
-        <div className="bg-terra px-5 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-5 text-white flex-shrink-0">
+        <div className="bg-terra px-7 pt-7 pb-5 text-white">
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors text-white font-bold text-sm"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors text-white font-bold text-sm"
           >✕</button>
-          <p className="text-white/70 text-[10px] uppercase tracking-widest mb-1">Book via WhatsApp</p>
-          <h3 className="text-base sm:text-xl font-bold leading-snug pr-8" style={{ fontFamily: "Lora, serif" }}>{stay.name}</h3>
-          <p className="text-white/70 text-[11px] mt-1 truncate">📍 {stay.village} &nbsp;·&nbsp; {stay.type}</p>
-          <div className="mt-2 sm:mt-3 flex items-center gap-2">
-            <span className="text-xl sm:text-2xl font-bold">{stay.price}</span>
-            <span className="text-white/60 text-xs sm:text-sm">/night</span>
-            <span className="ml-auto bg-white/20 rounded-full px-2.5 py-0.5 text-[11px] font-semibold shrink-0">Host: {stay.host}</span>
+          <p className="text-white/70 text-xs uppercase tracking-widest mb-1">Book via WhatsApp</p>
+          <h3 className="text-xl font-bold" style={{ fontFamily: "Lora, serif" }}>{stay.name}</h3>
+          <p className="text-white/70 text-xs mt-1">📍 {stay.village} &nbsp;·&nbsp; {stay.type}</p>
+          <div className="mt-3 flex items-center gap-2">
+            <span className="text-2xl font-bold">{stay.price}</span>
+            <span className="text-white/60 text-sm">/night</span>
+            <span className="ml-auto bg-white/20 rounded-full px-3 py-0.5 text-xs font-semibold">Host: {stay.host}</span>
           </div>
         </div>
 
-        {/* Scrollable form body */}
-        <form onSubmit={handleSubmit} className="px-5 sm:px-7 py-4 sm:py-6 space-y-4 overflow-y-auto flex-1">
-          <div className="grid grid-cols-2 gap-3">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="px-7 py-6 space-y-4">
+          <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] font-bold text-bark uppercase tracking-widest mb-1.5">Check-in</label>
+              <label className="block text-xs font-bold text-bark uppercase tracking-widest mb-1.5">Check-in</label>
               <input
                 type="date"
                 min={today}
                 value={form.checkin}
                 onChange={(e) => { setForm({ ...form, checkin: e.target.value }); setError(""); }}
                 required
-                className="w-full border border-straw rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 text-sm text-bark bg-white focus:outline-none focus:border-terra transition-colors"
+                className="w-full border border-straw rounded-xl px-3 py-2.5 text-sm text-bark bg-white focus:outline-none focus:border-terra transition-colors"
               />
             </div>
             <div>
-              <label className="block text-[10px] font-bold text-bark uppercase tracking-widest mb-1.5">Check-out</label>
+              <label className="block text-xs font-bold text-bark uppercase tracking-widest mb-1.5">Check-out</label>
               <input
                 type="date"
                 min={form.checkin || today}
                 value={form.checkout}
                 onChange={(e) => { setForm({ ...form, checkout: e.target.value }); setError(""); }}
                 required
-                className="w-full border border-straw rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 text-sm text-bark bg-white focus:outline-none focus:border-terra transition-colors"
+                className="w-full border border-straw rounded-xl px-3 py-2.5 text-sm text-bark bg-white focus:outline-none focus:border-terra transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-[10px] font-bold text-bark uppercase tracking-widest mb-1.5">Guests</label>
+            <label className="block text-xs font-bold text-bark uppercase tracking-widest mb-1.5">Guests</label>
             <div className="flex items-center gap-3">
               <button type="button"
                 onClick={() => setForm({ ...form, guests: Math.max(1, form.guests - 1) })}
-                className="w-10 h-10 rounded-full border border-straw bg-white text-bark font-bold text-lg flex items-center justify-center hover:border-terra hover:text-terra active:scale-95 transition-all"
+                className="w-9 h-9 rounded-full border border-straw bg-white text-bark font-bold text-lg flex items-center justify-center hover:border-terra hover:text-terra transition-colors"
               >−</button>
               <span className="text-lg font-bold text-bark w-8 text-center">{form.guests}</span>
               <button type="button"
                 onClick={() => setForm({ ...form, guests: Math.min(20, form.guests + 1) })}
-                className="w-10 h-10 rounded-full border border-straw bg-white text-bark font-bold text-lg flex items-center justify-center hover:border-terra hover:text-terra active:scale-95 transition-all"
+                className="w-9 h-9 rounded-full border border-straw bg-white text-bark font-bold text-lg flex items-center justify-center hover:border-terra hover:text-terra transition-colors"
               >+</button>
               <span className="text-xs text-clay ml-1">person{form.guests > 1 ? "s" : ""}</span>
             </div>
@@ -437,14 +433,14 @@ const BookingModal = ({ stay, onClose }) => {
 
           <button
             type="submit"
-            className="w-full bg-[#25D366] hover:bg-[#1ebe5d] active:bg-[#17a84f] text-white font-bold rounded-2xl py-3.5 sm:py-4 flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl active:scale-[0.98] transition-all duration-200"
+            className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold rounded-2xl py-4 flex items-center justify-center gap-3 text-sm shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
             Send Booking Request on WhatsApp
           </button>
-          <p className="text-center text-[10px] text-clay pb-1">You'll be redirected to WhatsApp. Booking confirmed by host.</p>
+          <p className="text-center text-[10px] text-clay">You'll be redirected to WhatsApp. Booking is confirmed by the host.</p>
         </form>
       </div>
     </div>
