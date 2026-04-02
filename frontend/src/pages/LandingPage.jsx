@@ -155,7 +155,7 @@ const TESTIMONIALS = [
   {
     name: "Ananya Sharma",
     from: "Pune",
-    text: "Three days at the Stone Cottage felt like three months of healing. No WiFi, no noise — just the sound of rain on a laterite roof. VilStay changed how I think about travel.",
+    text: "Three days at the Stone Cottage felt like three months of healing. No WiFi, no noise — just the sound of rain on a laterite roof. Vilstay changed how I think about travel.",
     rating: 5, avatar: "AS", stay: "The Stone Cottage, Sindhudurg",
   },
   {
@@ -189,10 +189,10 @@ const Navbar = () => {
         <a href="#" className="flex items-center gap-1 group">
           <img
             src="/logo.jpg"
-            alt="VilStay"
+            alt="Vilstay"
             className="h-11 w-11 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform duration-200"
           />
-          <span className="text-[9px] text-clay font-semibold uppercase tracking-[0.15em] ml-1 hidden sm:block">VilStay</span>
+          <span className="text-[9px] text-clay font-semibold tracking-[0.15em] ml-1 hidden sm:block">Vilstay</span>
         </a>
 
         {/* Desktop Nav */}
@@ -329,7 +329,7 @@ const BookingModal = ({ stay, onClose }) => {
       return;
     }
     const msg = [
-      `🏡 *VilStay Booking Request*`,
+      `🏡 *Vilstay Booking Request*`,
       ``,
       `📌 *Stay:* ${stay.name}`,
       `📍 *Location:* ${stay.village}`,
@@ -567,13 +567,13 @@ const WhySection = () => (
 
         {/* Text */}
         <div>
-          <p className="section-eyebrow mb-3">Why VilStay?</p>
+          <p className="section-eyebrow mb-3">Why Vilstay?</p>
           <h2 className="section-heading text-3xl md:text-4xl mb-5">
             Not a Hotel.<br />
             <em className="not-italic text-terra">A Home in a Village.</em>
           </h2>
           <p className="text-clay leading-relaxed mb-8 max-w-md">
-            VilStay is India's first platform dedicated exclusively to authentic village stays. 
+            Vilstay is India's first platform dedicated exclusively to authentic village stays. 
             We connect curious travelers with real host families living in beautiful rural India — 
             where food is cooked on a chulha, water comes from a well, and every evening ends under the stars.
           </p>
@@ -612,7 +612,7 @@ const Experiences = () => (
           Village Experiences
         </h2>
         <p className="text-white/50 max-w-lg mx-auto text-sm leading-relaxed">
-          Every VilStay is more than a bed — it's an invitation to participate in real village life.
+          Every Vilstay is more than a bed — it's an invitation to participate in real village life.
         </p>
       </div>
 
@@ -669,13 +669,13 @@ const ManifestoBanner = () => (
       <WarliBorder />
     </div>
     <div className="max-w-4xl mx-auto text-center relative z-10">
-      <p className="text-white/70 text-xs font-bold uppercase tracking-[0.2em] mb-4">The VilStay Promise</p>
+      <p className="text-white/70 text-xs font-bold uppercase tracking-[0.2em] mb-4">The Vilstay Promise</p>
       <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6" style={{ fontFamily: "Lora, serif" }}>
         "Slow down. Eat together.<br />
         <em className="not-italic text-gold">Sleep under the stars."</em>
       </h2>
       <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-        In a world of fast hotels, VilStay offers something rarer — the gentle rhythm of village life, 
+        In a world of fast hotels, Vilstay offers something rarer — the gentle rhythm of village life, 
         the warmth of a host family, and the beauty of rural India at its most honest.
       </p>
       <button className="inline-flex items-center gap-2 bg-white text-terra font-bold rounded-full px-9 py-4 text-sm shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
@@ -715,9 +715,9 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2 mb-4">
-            <img src="/logo.jpg" alt="VilStay" className="h-11 w-11 rounded-full object-cover shadow-md" />
+            <img src="/logo.jpg" alt="Vilstay" className="h-11 w-11 rounded-full object-cover shadow-md" />
             <div>
-              <span className="text-[9px] text-white/40 uppercase tracking-widest block">VilStay · India</span>
+              <span className="text-[9px] text-white/40 tracking-widest block">Vilstay · India</span>
             </div>
           </div>
           <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-5">
@@ -741,7 +741,7 @@ const Footer = () => (
         ))}
       </div>
       <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p className="text-xs text-white/30">© 2026 VilStay. All Rights Reserved.</p>
+        <p className="text-xs text-white/30">© 2026 Vilstay. All Rights Reserved.</p>
         <p className="text-xs text-white/30">Made with ❤️ for rural India · Privacy · Terms</p>
       </div>
     </div>

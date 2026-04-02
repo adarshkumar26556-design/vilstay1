@@ -13,7 +13,7 @@ const About = () => (
       <h1 className="text-4xl font-extrabold text-white mb-4">
         About{" "}
         <span className="bg-gradient-to-r from-brand-400 to-blue-300 bg-clip-text text-transparent">
-          VilStay
+          Vilstay
         </span>
       </h1>
       <p className="text-gray-400 text-lg max-w-2xl mx-auto">

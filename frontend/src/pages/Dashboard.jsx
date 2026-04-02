@@ -22,7 +22,7 @@ const Dashboard = () => {
             <Home className="text-white" size={20} />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-bark tracking-tight" style={{ fontFamily: "Lora, serif" }}>VilStay Admin</h1>
+            <h1 className="text-xl font-bold text-bark tracking-tight" style={{ fontFamily: "Lora, serif" }}>Vilstay Admin</h1>
             <p className="text-[10px] uppercase tracking-widest text-clay font-bold">Property Management</p>
           </div>
         </div>
